@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS canny_db;
+CREATE DATABASE canny_db;
