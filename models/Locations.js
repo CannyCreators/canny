@@ -16,6 +16,10 @@ Locations.init(
     location_name: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {

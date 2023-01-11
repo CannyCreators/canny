@@ -12,6 +12,10 @@ Locations.hasMany(Reviews, {
     foreignKey: 'reviews_id',
 });
 
+Ratings.belongsTo(Reviews, {
+    foreignKey: 'review_id'
+})
+
 
 Reviews.belongsTo(Locations, {
     foreignKey: 'locations_id',
@@ -22,6 +26,9 @@ Reviews.belongsTo(Users, {
 Reviews.hasMany(Tags, {
     foreignKey: 'tags_id',
     through: LocationTags,
+});
+Reviews.hasMany(Ratings, {
+    foreignKey: 'rating_id'
 });
 
 

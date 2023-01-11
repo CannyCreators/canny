@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, INTEGER } = require('sequelize');
 const sequelize = require('../config/connection');
 
 
@@ -14,6 +14,10 @@ Reviews.init(
       autoIncrement: true
     },
     location_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    title: {
       type: DataTypes.STRING,
       allowNull: false
     },

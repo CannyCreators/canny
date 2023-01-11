@@ -13,8 +13,10 @@ Ratings.init(
       primaryKey: true,
       autoIncrement: true
     },
-    location_name: {
-      type: DataTypes.STRING,
+    rating: {
+      type: DataTypes.INTEGER,
+      min: 1,
+      max: 5,
       allowNull: false
     }
   },
