@@ -1,0 +1,21 @@
+<div>
+    <div class="location-header">
+        <h1>{{locationDisplay.location_name}}</h1>
+    </div>
+    <div class ="location-description">
+        <p>{{locationDisplay.description}}</p>
+    </div>
+    <div class = "location-image">
+        <img></img>
+    </div>
+    <div class = "location-tags">
+        <ul>
+            {{#each locationDisplay.tags as |tag|}}
+        </ul>
+    </div>
+    <div class = "location-reviews">
+        <ul>
+            {{#each locationDisplay.reviews as |review}}
+        </ul>
+    </div>
+</div>
