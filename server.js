@@ -33,3 +33,9 @@ app.get('*', (req, res) => {
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+
+// require to run app
+app.listen(PORT, () => {
+  console.log(`App Port: ${PORT}`);
+});
