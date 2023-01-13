@@ -19,25 +19,26 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
+    console.log('test');
     const searchedLocation = await Locations.findByPk(req.params.id, {
-        include: [
-            {
-                model: Reviews,
-                attributes: [
-                    'id',
-                    'location_name',
-                    'review',
-                    ''
-                ]
-            },
-            {
-                model: Tags,
-                attributes: [
-                    'id',
-                    'tag_name'
-                ]
-            }
-        ]
+        // include: [
+        //     {
+        //         model: Reviews,
+        //         attributes: [
+        //             'id',
+        //             'location_name',
+        //             'review',
+        //             ''
+        //         ]
+        //     },
+        //     {
+        //         model: Tags,
+        //         attributes: [
+        //             'id',
+        //             'tag_name'
+        //         ]
+        //     }
+        // ]
     });
     const locationDisplay = searchedLocation.get({ plain: true });
     res.render('locationDisplay', { locationDisplay });
@@ -50,28 +51,9 @@ router.get('/names/:location_name', async (req, res) => {
         where: {
             location_name: req.params.location_name
         }
-    },
-        {
-            include: [
-                {
-                    model: Reviews,
-                    attributes: [
-                        'id',
-                        'location_name',
-                        'review',
-                    ]
-                },
-                {
-                    model: Tags,
-                    attributes: [
-                        'id',
-                        'tag_name'
-                    ]
-                }
-            ]
-        });
-    const locationDisplay = searchedLocation.get({ plain: true });
-    res.render('locationDisplay', { locationDisplay });
+    });
+    const location = searchedLocation.get({ plain: true });
+    res.json(location);
 })
 
 module.exports = router;
