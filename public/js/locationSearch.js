@@ -12,7 +12,8 @@ const searchFormHandler = async (event) => {
     if (!response.ok) {
       alert('Location not found.');
     } else {
-      
+      const location = await response.json();
+      document.location.replace(`api/locations/${location.id}`);
     }
   }
 };
