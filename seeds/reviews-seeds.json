@@ -1,0 +1,9 @@
+[
+    {
+        "id": "1",
+        "title": "A good burger.",
+        "review": "The best burgers in town!",
+        "locations_id": 1,
+        "users_id": 1
+    }
+]
