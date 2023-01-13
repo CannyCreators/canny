@@ -1,3 +1,46 @@
 <li class="review-title">
     <p>{{review.title}}</p>
 </li>
+
+<li class="review-title">
+    <p>{{review.title}}</p>
+</li>
+
+<div class="submit-review-container">
+    <h2>
+        Submit a Review
+    </h2>
+    <form class="new-review-form">
+        <label for="review_title">
+            Title:
+        </label>
+        <br />
+        <textarea id="review_title" name="review_title" rows="2" cols="30">
+      {{review.title}}
+    </textarea>
+        <br />
+        <label for="location_name">
+            Location:
+        </label>
+        <br />
+        <textarea id="location_name" name="location_name" rows="2" cols="30">
+      {{review.location_name}}
+    </textarea>
+        <br />
+        <label for="review_description">
+            Review:
+        </label>
+        <br />
+        <textarea id="review_description" name="review_description" rows="5" cols="30">
+      {{review.review}}
+    </textarea>
+        <br />
+        <br />
+        <button type="submit" value="Submit">
+            Submit Review
+        </button>
+    </form>
+</div>
+</div>
+
+<script src="/js/add-review.js"></script>
