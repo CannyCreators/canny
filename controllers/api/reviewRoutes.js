@@ -5,7 +5,6 @@ const { Reviews } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         const createReview = await Reviews.create({
-            location_name: req.body.location_name,
             title: req.body.title,
             review: req.body.review,
         });

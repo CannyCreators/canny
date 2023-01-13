@@ -13,10 +13,6 @@ Reviews.init(
       primaryKey: true,
       autoIncrement: true
     },
-    location_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false
