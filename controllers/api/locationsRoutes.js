@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
             }
         ]
     });
-    const allLocations = locationsDB.get({plain: true});
-    res.render('locationSearch', {allLocations})
+    const allLocations = locationsDB.get({ plain: true });
+    res.render('locationSearch', { allLocations })
 })
 
 router.get('/:id', async (req, res) => {
@@ -39,8 +39,39 @@ router.get('/:id', async (req, res) => {
             }
         ]
     });
-    const locationDisplay = searchedLocation.get({plain: true});
-    res.render('locationDisplay', {locationDisplay});
+    const locationDisplay = searchedLocation.get({ plain: true });
+    res.render('locationDisplay', { locationDisplay });
+})
+
+// Search by location name
+
+router.get('/names/:location_name', async (req, res) => {
+    const searchedLocation = await Locations.findOne({
+        where: {
+            location_name: req.params.location_name
+        }
+    },
+        {
+            include: [
+                {
+                    model: Reviews,
+                    attributes: [
+                        'id',
+                        'location_name',
+                        'review',
+                    ]
+                },
+                {
+                    model: Tags,
+                    attributes: [
+                        'id',
+                        'tag_name'
+                    ]
+                }
+            ]
+        });
+    const locationDisplay = searchedLocation.get({ plain: true });
+    res.render('locationDisplay', { locationDisplay });
 })
 
 module.exports = router;

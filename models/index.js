@@ -16,7 +16,6 @@ Ratings.belongsTo(Reviews, {
     foreignKey: 'review_id'
 })
 
-
 Reviews.belongsTo(Locations, {
     foreignKey: 'locations_id',
 });
