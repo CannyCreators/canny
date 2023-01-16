@@ -8,4 +8,6 @@ router.get('/locationSearch', async (req, res)=> {
     res.render('locationSearch');
 })
 
+router.get('locationReviews')
+
 module.exports = router;

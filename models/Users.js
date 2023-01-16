@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class Users extends Model {}
+class Users extends Model { }
 
 
 Users.init(
@@ -24,12 +24,12 @@ Users.init(
       validate: {
         isEmail: true
       }
-      
+
     },
     moderator: {
-        type: DataTypes.BOOLEAN,
+      type: DataTypes.BOOLEAN,
     },
-    
+
     password: {
       type: DataTypes.STRING,
       allowNull: false,
