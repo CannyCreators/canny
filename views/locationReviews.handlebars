@@ -1,0 +1,32 @@
+<div>
+    <div class="location-header">
+        <h1>{{locationReviews.location_name}}</h1>
+    </div>
+    <div class="location-description">
+        <p>{{locationReviews.description}}</p>
+    </div>
+    {{!-- <div class="location-image">
+        <img></img>
+    </div>
+    <div class="location-tags">
+    </div> --}}
+    {{!-- <div class="location-reviews">
+
+    </div> --}}
+</div>
+{{#each reviews as |review|}}
+<div >
+    <p>
+        {{review.title}}
+    </p>
+    <p>
+        {{review.review}}
+    </p>
+</div>
+<div >
+    <p>
+        User:
+        {{review.name}}
+    </p>
+</div>
+{{/each}}

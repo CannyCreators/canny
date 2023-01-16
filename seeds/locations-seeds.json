@@ -3,5 +3,15 @@
         "id": "1",
         "location_name": "Bob's Burgers",
         "description": "A place that sells burgers."
+    },
+    {
+        "id": "2",
+        "location_name": "Jimmy Pestos",
+        "description": "Italian restaurant."
+    }, 
+    {
+        "id": "3",
+        "location_name": "Wonder Warf",
+        "description": "An amusement park on the warf."
     }
 ]

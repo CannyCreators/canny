@@ -5,5 +5,12 @@
         "email": "bob@bob.com",
         "moderator": false,
         "password": "password12345"
+    },
+    {
+        "id": 2,
+        "name": "Teddy",
+        "email": "teddy@bob.com",
+        "moderator": false,
+        "password": "burger123"
     }
 ]
