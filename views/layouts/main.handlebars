@@ -35,21 +35,29 @@
             </a>
 
             <div class="navbar-dropdown">
-              <a href = '/locationSearch' class="navbar-item">
+              <a href='/locationSearch' class="navbar-item">
                 Locations
               </a>
               <a class="navbar-item">
                 Users
               </a>
             </div>
-            
+
           </div>
-          <a class="navbar-item">
+          {{#if logged_in}}
+          <a href='logout' class="navbar-item">
+            Sign Out
+          </a>
+
+          {{else}}
+          <a href='/signup' class="navbar-item">
             Sign Up
           </a>
-          <a href = '/login' class="navbar-item">
+          <a href='/login' class="navbar-item">
             Login
           </a>
+          {{/if}}
+
         </div>
 
       </div>
@@ -60,6 +68,9 @@
   <main>
     {{{body}}}
   </main>
+  {{#if logged_in}}
+  <script src='/js/logout.js'></script>
+  {{/if}}
 </body>
 
 </html>
