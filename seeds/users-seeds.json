@@ -12,5 +12,20 @@
         "email": "teddy@bob.com",
         "moderator": false,
         "password": "burger123"
+    },
+    {
+        "id": 3,
+        "name": "Linda",
+        "email": "linda@bob.com",
+        "moderator": false,
+        "password": "alright123"
+    },
+    {
+        "id": 4,
+        "name": "Louise",
+        "email": "bunny@bob.com",
+        "moderator": false,
+        "password": "ears1234"
     }
+
 ]

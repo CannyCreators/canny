@@ -5,5 +5,68 @@
         "review": "The best burgers in town!",
         "locations_id": 1,
         "users_id": 1
+    }, 
+    {
+        "id": "2",
+        "title": "Hey Lin ... Where are the kids?",
+        "review": "Our kids go here all the time. They solved a murder mystery there once.",
+        "locations_id": 3,
+        "users_id": 1
+    },
+    {
+        "id": "3",
+        "title": "I can see you JIMMY",
+        "review": "Yeah sure, the pizza's FINE if you don't want an original daily recipe that incorporates clever wordplay.",
+        "locations_id": 2,
+        "users_id": 1
+    },
+    {
+        "id": "4",
+        "title": "The owner was at the capitol on Jan 6 ",
+        "review": "I mean, the mozarella sticks are great, but ... yeesh.",
+        "locations_id": 2,
+        "users_id": 2
+    },
+    {
+        "id": "5",
+        "title": "I eat here every day",
+        "review": "Bob's my best friend.",
+        "locations_id": 2,
+        "users_id": 2
+    },
+    {
+        "id": "6",
+        "title": "Love the server",
+        "review": "Yeah the burgers are great! And I love the server, so talented.",
+        "locations_id": 1,
+        "users_id": 3
+    },
+    {
+        "id": "7",
+        "title": "Strong Margaritas",
+        "review": "Aren't margaritas a mexican restaurant thing? Eh, better have another to make sure.",
+        "locations_id": 2,
+        "users_id": 3
+    },
+    {
+        "id": "8",
+        "title": "Wanda Warf Warf of Wanda",
+        "review": "Love the chilli cheese fries. Mm, so good.",
+        "locations_id": 3,
+        "users_id": 3
+    },
+    {
+        "id": "9",
+        "title": "Pecking Order",
+        "review": " So that Turkey Trot they had on Thanksgiving was something huh? Hahaha ha ...yeugh.",
+        "locations_id": 3,
+        "users_id": 2
+    },
+    {
+        "id": "10",
+        "title": "The ears add six inches",
+        "review": "No body even cares if you wear your hat when you go up to the height measure. This place is GREAT.",
+        "locations_id": 3,
+        "users_id": 4
     }
 ]
