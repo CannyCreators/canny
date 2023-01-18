@@ -84,4 +84,13 @@ router.get('/names/:location_name', async (req, res) => {
     res.json(location);
 })
 
+router.post('/', async(req, res) => {
+    try {
+        const location = Locations.create(req.body);
+        res.status(200).json(location);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
 module.exports = router;
