@@ -1,11 +1,18 @@
-const router = require('express').Router()
+const router = require('express').Router();
+const {Locations, Tags} = require('../models');
 
 router.get('/', async (req, res) => {
-    res.render('homepage');
+    const locationsDB = await Locations.findAll()
+    const locations = locationsDB.map((location) => location.get({ plain: true }));
+    res.render('homepage', {locations});
 });
 
 router.get('/locationSearch', async (req, res)=> {
     res.render('locationSearch');
+})
+
+router.get('/locationCreate', async (req, res)=> {
+    res.render('locationCreate');
 })
 
 router.get('locationReviews')

@@ -19,27 +19,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    console.log('test');
-    const searchedLocation = await Locations.findByPk(req.params.id, {
-        // include: [
-        //     {
-        //         model: Reviews,
-        //         attributes: [
-        //             'id',
-        //             'location_name',
-        //             'review',
-        //             ''
-        //         ]
-        //     },
-        //     {
-        //         model: Tags,
-        //         attributes: [
-        //             'id',
-        //             'tag_name'
-        //         ]
-        //     }
-        // ]
-    });
+    const searchedLocation = await Locations.findByPk(req.params.id);
     const locationDisplay = searchedLocation.get({ plain: true });
     res.render('locationDisplay', { locationDisplay });
 })
