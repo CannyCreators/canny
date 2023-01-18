@@ -44,33 +44,33 @@ router.get('/:id', async (req, res) => {
     res.render('locationDisplay', { locationDisplay });
 })
 
-//get all reviews for location
+// //get all reviews for location
 
-router.get('/reviews/:id', async (req, res) => {
-    try {
-        const locationsReviews = await Locations.findByPk(req.params.id, {
+// router.get('/reviews/:id', async (req, res) => {
+//     try {
+//         const locationsReviews = await Locations.findByPk(req.params.id, {
 
-            attributes: ['location_name', 'description'],
-            include: [{
-                model: Reviews, attributes: ['title', 'review'],
-                include: [{
-                    model: Users, attributes: ['name']
-                }]
-            }]
-        });
+//             attributes: ['location_name', 'description'],
+//             include: [{
+//                 model: Reviews, attributes: ['title', 'review'],
+//                 include: [{
+//                     model: Users, attributes: ['name']
+//                 }]
+//             }]
+//         });
 
-        if (!locationsReviews) {
-            res.status(400).json({ message: 'No location found!' })
-            return;
-        }
+//         if (!locationsReviews) {
+//             res.status(400).json({ message: 'No location found!' })
+//             return;
+//         }
 
-        const reviewDisplay = locationsReviews.get({ plain: true });
-        // res.render('locationReviews', { reviewDisplay });
-        res.json(reviewDisplay)
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
+//         const reviewDisplay = locationsReviews.get({ plain: true });
+//         // res.render('locationReviews', { reviewDisplay });
+//         res.json(reviewDisplay)
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// })
 
 // Search by location name
 

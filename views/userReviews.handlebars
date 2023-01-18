@@ -1,0 +1,21 @@
+{{#each userDisplay as |reviews|}}
+<div>
+    <p>
+        Location: {{reviews.location.location_name}}
+        </br>
+        Description:
+        </br>
+        {{reviews.location.description}}
+    </p>
+    <div>
+        <p>
+            Title: {{reviews.title}}
+            </br>
+            Review:
+            </br>
+            {{reviews.review}}
+        </p>
+        <br>
+    </div>
+</div>
+{{/each}}
