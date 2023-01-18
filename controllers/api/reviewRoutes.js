@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
             //when this post is called by script with event listener, include locations_id, pull it from URL from locaiton page
             locations_id: req.body.locations_id,
             // users_id: req.session_users_id
-            users_id: req.body.users_id, 
+            users_id: 1
         });
         // res.status(200).json(createReview)
         const reviewDisplay = createReview.get({ plain: true });
