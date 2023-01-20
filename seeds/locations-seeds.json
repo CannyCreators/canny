@@ -2,16 +2,19 @@
     {
         "id": "1",
         "location_name": "Bob's Burgers",
+        "city": "Chicago",
         "description": "A place that sells burgers."
     },
     {
         "id": "2",
         "location_name": "Jimmy Pestos",
+        "city": "Atlanta",
         "description": "Italian restaurant."
     }, 
     {
         "id": "3",
         "location_name": "Wonder Warf",
+        "city": "Chicago",
         "description": "An amusement park on the warf."
     }
 ]
