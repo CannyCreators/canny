@@ -54,16 +54,6 @@ router.get('/:id', async (req, res) => {
 
 // Search by location name
 
-router.get('/names/:location_name', async (req, res) => {
-    const searchedLocation = await Locations.findOne({
-        where: {
-            location_name: req.params.location_name
-        }
-    });
-    const location = searchedLocation.get({ plain: true });
-    res.json(location);
-})
-
 router.post('/', async(req, res) => {
     try {
         const location = Locations.create(req.body);

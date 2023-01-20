@@ -1,17 +1,32 @@
 const router = require('express').Router();
-const {Locations, Tags} = require('../models');
+const { Locations, Tags } = require('../models');
 
 router.get('/', async (req, res) => {
     const locationsDB = await Locations.findAll()
     const locations = locationsDB.map((location) => location.get({ plain: true }));
-    res.render('homepage', {locations});
+    res.render('homepage', { locations });
 });
 
-router.get('/locationSearch', async (req, res)=> {
-    res.render('locationSearch');
+router.get('/locationSearch', async (req, res) => {
+    const locationsList = [];
+    res.render('locationSearch', { locationsList });
+});
+
+router.get('/locationSearch/:city_name', async (req, res) => {
+
+    const locationsData = await Locations.findAll({
+        where: {
+            city: req.params.city_name
+        }
+    });
+    const locationsList = locationsData.map((location) =>
+        location.get({ plain: true })
+    );
+
+    res.render('locationSearch', { locationsList });
 })
 
-router.get('/locationCreate', async (req, res)=> {
+router.get('/locationCreate', async (req, res) => {
     res.render('locationCreate');
 })
 

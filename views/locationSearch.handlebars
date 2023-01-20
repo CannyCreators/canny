@@ -1,8 +1,8 @@
 <form class="container search-form">
     <div class="field">
-        <label class="label">Search by location name</label>
+        <label class="label">Search by City Name</label>
         <div class="control">
-            <input class="input" type="text" id="name-search" placeholder="name">
+            <input class="input" type="text" id="name-search" placeholder="city">
         </div>
     </div>
     <div class="field">
@@ -10,4 +10,14 @@
     </div>
 </form>
 
-<script src="./js/locationSearch.js"></script>
+<div class = "results-field">
+    {{#each locationsList as |location|}}
+    <div id="locationCard">
+    <h1 id="locationName">{{location.location_name}}</h1>
+    <h2 id="cityName">{{location.city}}</h2>
+    <p id="locationDescription">{{location.description}}</p>
+    </div>
+    {{/each}}
+</div>
+
+<script src="/js/locationSearch.js"></script>
