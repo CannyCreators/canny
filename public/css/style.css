@@ -30,7 +30,15 @@ body {
 
 .hamburger {
     background-color: var(--colorSecondaryoff);
-    color: var(--colorPrimary);
+    color: var(--colorPrimary)
+}
+.hamburgerBackground {
+    background-color: var(--colorSecondaryoff);
+}
+
+.hamburger:hover {
+    background-color: var(--colorPrimary);
+    color: var(--colorSecondaryoff)
 }
 
 #locationName {
@@ -98,7 +106,11 @@ body {
     background-color: var(--colorSecondaryoff);
 }
 
-#location-description {
+#location-description,
+.signup-form,
+.search-form,
+.login-form,
+ .location-create-form {
     margin-left: 10px;
 
 }
@@ -116,4 +128,11 @@ body {
 
 #passwordLabel {
     margin-top: 15px;
+}
+
+.navbar-item,
+.navbar-link,
+.navbar-dropdown {
+    color: var(--colorPrimary);
+    background-color: var(--colorSecondary)
 }
