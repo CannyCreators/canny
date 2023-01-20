@@ -1,0 +1,119 @@
+:root {
+    --colorPrimary: #ffffff;
+    --colorSecondary: #3e8ed0;
+    --colorSecondaryoff: #306896;
+    --cardHover: rgb(65, 80, 194);
+    --shadow: rgb(85, 84, 85);
+
+    --fontTitle: Georgia, serif;
+    --fontPrimary: sans-serif;
+
+}
+
+body {
+    background-color: rgb(229, 243, 255);
+
+  
+}
+
+#navbar {
+    background-color: var(--colorSecondary);
+
+}
+
+#title {
+    color: var(--colorPrimary);
+    font-family: var(--fontTitle);
+    font-size: 2rem;
+    font-weight: 200;
+}
+
+.hamburger {
+    background-color: var(--colorSecondaryoff);
+    color: var(--colorPrimary);
+}
+
+#locationName {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#locationDescription {
+    font-size: 1rem;
+}
+
+#locationCard {
+    background-color: aqua;
+    border: solid;
+    border-width: 2px;
+    border-radius: 25px;
+    box-shadow: 3px 3px var(--shadow);
+    margin: 3px;
+    max-width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#locationCard:hover {
+    color: var(--colorPrimary);
+    background-color: var(--cardHover);
+    box-shadow: 2px 2px var(--shadow);
+}
+
+
+.location-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#name-search,
+#location-title {
+    margin-left: 10px;
+    width: 75%;
+
+}
+
+#searchBtn,
+#image-upload, 
+#signupBtn,
+#create,
+#loginBtn {
+    border: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: var(--colorSecondary);
+    color: var(--colorPrimary);
+    font-size: 1.5rem;
+    
+}
+
+#searchBtn:hover,
+#image-upload:hover, 
+#signupBtn:hover,
+#create:hover,
+#loginBtn:hover {
+    color: var(--colorPrimary);
+    background-color: var(--colorSecondaryoff);
+}
+
+#location-description {
+    margin-left: 10px;
+
+}
+
+#location-description.textarea {
+    max-width: 95%;
+    min-width: 95%;
+}
+
+#signup-title, #loginTitle {
+    font-weight: 650;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#passwordLabel {
+    margin-top: 15px;
+}

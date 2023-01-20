@@ -1,6 +1,8 @@
 <div class="location-list">
     {{#each locations as |location|}}
-    <h1>{{location.location_name}}</h1>
-    <p>{{location.description}}</p>
+    <div id="locationCard">
+    <h1 id="locationName">{{location.location_name}}</h1>
+    <p id="locationDescription">{{location.description}}</p>
+    </div>
     {{/each}}
 </div>

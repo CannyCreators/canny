@@ -4,59 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CANNY</title>
+  <title id="title">CANNY</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <header>
-    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-info" id="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <h1>CANNY</h1>
+          <h1 id="title">CANNY</h1>
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div class="navbar-menu">
+      <div class="navbar-menu" id="nav-links">
         <div class="navbar-start">
 
         </div>
         <div class="navbar-end">
-          <a href='/locationCreate' class="navbar-item">
+          <a href='/locationCreate' class="navbar-item" id="nav-create" >
             Create New Location
           </a>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
+            <a class="navbar-link" id="nav-search">
               Search
             </a>
 
             <div class="navbar-dropdown">
-              <a href='/locationSearch' class="navbar-item">
+              <a href='/locationSearch' class="navbar-item" id="nav-locations">
                 Locations
               </a>
-              <a class="navbar-item">
+              <a class="navbar-item" id="nav-users">
                 Users
               </a>
             </div>
 
           </div>
           {{#if logged_in}}
-          <a href='logout' class="navbar-item">
+          <a href='logout' class="navbar-item" id="nav-signout">
             Sign Out
           </a>
 
           {{else}}
-          <a href='/signup' class="navbar-item">
-            Sign Up
+          <a href='/signup' class="navbar-item" id="nav-signup">
+            Sign-Up
           </a>
-          <a href='/login' class="navbar-item">
+          <a href='/login' class="navbar-item" id="nav-login">
             Login
           </a>
           {{/if}}
@@ -74,6 +75,11 @@
   {{#if logged_in}}
   <script src='/js/logout.js'></script>
   {{/if}}
+  <script src='js/index.js'></script>
+
+  <footer>
+
+  </footer>
 </body>
 
 </html>
