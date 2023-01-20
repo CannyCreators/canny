@@ -15,6 +15,10 @@ router.get('/locationCreate', async (req, res)=> {
     res.render('locationCreate');
 })
 
+router.get('/api/reviews/location/', async (req, res)=> {
+    res.render('/locationReviews/');
+})
+
 router.get('/reviewCreate/:id', async (req, res) => {
     res.render('reviewCreate');
 })
