@@ -3,19 +3,18 @@ const createFormHandler = async (event) => {
 
     const title = document.querySelector('#review-title').value.trim();
     const review = document.querySelector('#review-body').value.trim();
-
     const urlArray = document.URL.split('/');
     const locations_id = urlArray[urlArray.length - 1];
 
     if (title && review) {
         const response = await fetch('/api/reviews', {
             method: 'POST',
-            body: JSON.stringify({ title, review, locations_id }),
+            body: JSON.stringify({ title, review, locations_id}),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/api/reviews/locations/' + locations_id);
         } else {
             alert('Failed to create review.');
         }
