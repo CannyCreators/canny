@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const path = require('path');
-const { Locations, Reviews, Tags, Users } = require('../../models');
+const { Locations } = require('../../models');
 
 router.get('/', async (req, res) => {
     const locationsDB = await Locations.findAll({
@@ -21,36 +21,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     const searchedLocation = await Locations.findByPk(req.params.id);
     const locationDisplay = searchedLocation.get({ plain: true });
-    res.render('locationDisplay', { locationDisplay });
+    res.render('locationDisplay', { locationDisplay, 
+        users_id: req.session.users_id, 
+        logged_in: req.session.logged_in });
 })
-
-// //get all reviews for location
-
-// router.get('/reviews/:id', async (req, res) => {
-//     try {
-//         const locationsReviews = await Locations.findByPk(req.params.id, {
-
-//             attributes: ['location_name', 'description'],
-//             include: [{
-//                 model: Reviews, attributes: ['title', 'review'],
-//                 include: [{
-//                     model: Users, attributes: ['name']
-//                 }]
-//             }]
-//         });
-
-//         if (!locationsReviews) {
-//             res.status(400).json({ message: 'No location found!' })
-//             return;
-//         }
-
-//         const reviewDisplay = locationsReviews.get({ plain: true });
-//         // res.render('locationReviews', { reviewDisplay });
-//         res.json(reviewDisplay)
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
 
 // Search by location name
 

@@ -1,31 +1,7 @@
 const router = require('express').Router();
-const { Users, Reviews, Locations } = require('../../models');
+const { Users} = require('../../models');
 
-//get reviews of one user
-router.get('/reviews/:name', async (req, res) => {
-  try {
-    const userReveiws = await Users.findAll({
-      where: {
-        name: req.params.name
-      },
-      attributes: ['name', 'email'],
-      include: [{
-        model: Reviews, attributes: ['title', 'review'],
-        include: [{model:Locations, attributes: ['location_name']}]
-      }]
-  });
-
-if (!userReveiws) {
-  res.status(400).json({ message: 'No user found with that name!' })
-  return;
-}
-
-res.status(200).json(userReveiws)
-  } catch (err) {
-  res.status(500).json(err);
-}
-})
-
+//sign-up for new users
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await Users.create({
@@ -35,7 +11,8 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.users_id = dbUserData.id;
+      req.session.logged_in = true;
 
       res.status(200).json(dbUserData);
     });
@@ -50,7 +27,7 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await Users.findOne({
       where: {
-        email: req.body.email,
+        email: req.body.email
       },
     });
 
@@ -71,11 +48,10 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
+      req.session.users_id = dbUserData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
@@ -85,7 +61,7 @@ router.post('/login', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });

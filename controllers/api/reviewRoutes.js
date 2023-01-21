@@ -1,22 +1,22 @@
 const router = require('express').Router();
 const path = require('path');
 const { Reviews, Users, Locations } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //post review
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const createReview = await Reviews.create({
-            title: req.body.title,
-            review: req.body.review,
-            //when this post is called by script with event listener, include locations_id, pull it from URL from locaiton page
-            locations_id: req.body.locations_id,
-            // users_id: req.session_users_id
-            users_id: 1
+
+            ...req.body,
+            // locations_id: req.body.locations_id,
+            users_id: req.session.users_id
+            // users_id: 1
         });
-        // res.status(200).json(createReview)
-        const reviewDisplay = createReview.get({ plain: true });
-        res.render('submitedReview', { reviewDisplay });
-        console.log(reviewDisplay);
+        res.status(200).json(createReview)
+        // const reviewDisplay = createReview.get({ plain: true });
+        // res.render('submitedReview', { reviewDisplay });
+        console.log(createReview);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -106,7 +106,7 @@ router.get('/locations/:locations_id', async (req, res) => {
         });
 
         if (!locationReviews) {
-            res.status(400).json({ message: 'No location found with that name!' })
+            res.status(400).json({ message: 'No location found with that id!' })
             return;
         }
         //maping over array of all reviews for user
@@ -115,7 +115,9 @@ router.get('/locations/:locations_id', async (req, res) => {
           );
 
           res.render('locationReviews', {
-            locationDisplay, locationReviews
+            locationDisplay, 
+            users_id: req.session.users_id, 
+            logged_in: req.session.logged_in
           });
         
         // res.status(200).json(locationDisplay)

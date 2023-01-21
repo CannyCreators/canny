@@ -14,7 +14,9 @@
     <nav class="navbar is-info" id="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <h1 id="title">CANNY</h1>
+          <a href="/">
+            <h1 id="title">CANNY</h1>
+          </a>
         </a>
 
         <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false"
@@ -31,11 +33,10 @@
         </div>
         <div class="navbar-end">
           <a href='/' class="navbar-item" id="nav-home">
-          Home
+            Home
           </a>
 
-
-          <a href='/locationCreate' class="navbar-item" id="nav-create" >
+          <a href='/locationCreate' class="navbar-item" id="nav-create">
             Create New Location
           </a>
           <div class="navbar-item has-dropdown is-hoverable">
@@ -54,10 +55,9 @@
 
           </div>
           {{#if logged_in}}
-          <a href='logout' class="navbar-item" id="nav-signout">
+          <a class="navbar-item" id="nav-signout">
             Sign Out
           </a>
-
           {{else}}
           <a href='/signup' class="navbar-item" id="nav-signup">
             Sign-Up
