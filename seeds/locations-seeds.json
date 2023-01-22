@@ -16,5 +16,11 @@
         "location_name": "Wonder Warf",
         "city": "Chicago",
         "description": "An amusement park on the warf."
+    },
+    {
+        "id": "4",
+        "location_name": "Wagstaff School",
+        "city": "Jersey City",
+        "description": "A K-8 public school."
     }
 ]

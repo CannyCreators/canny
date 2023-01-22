@@ -1,7 +1,9 @@
+<div>
+    <h1>User Reviews for {{locationName}}</h1>
+</div>
+
 {{#each locationDisplay as |review|}}
 <div>
-    <h1>Location: {{review.location.location_name}}
-    </h1>
     <p>Title: <a href="/api/reviews/{{review.id}}">{{review.title}}</a>
     </p>
     <p>Review:
@@ -11,8 +13,13 @@
 </div>
 <div>
     <p>Submitted by: 
-        {{review.user.name}}, {{review.user.email}}
+        <a href="/api/users/{{review.user.id}}">{{review.user.name}}</a>
     </p>
+    <p><a href="/api/reviews/users/{{review.user.id}}">See all reviews by {{review.user.name}}</a></p>
     <br>
 </div>
 {{/each}}
+
+<div>
+    <a href="/api/locations/{{locationID}}"><h1>Back to {{locationName}}</h1></a>
+</div>

@@ -1,8 +1,9 @@
 <div>
-    <p>Title: {{oneReviewDisplay.title}}</p>
+    <h1>Title: {{oneReviewDisplay.title}}</h1>
     <p>Review: {{oneReviewDisplay.review}}</p>
-    <p>Location: {{oneReviewDisplay.location.location_name}}</p>
-    <p>Description: {{oneReviewDisplay.location.description}}</p>
-    <p>User: {{oneReviewDisplay.user.name}}, {{oneReviewDisplay.user.email}}
+    <p>Location: {{oneReviewDisplay.location.location_name}}, {{oneReviewDisplay.location.description}}</p>
+    <p>Submitted by: <a href="/api/users/{{oneReviewDisplay.user.id}}">{{oneReviewDisplay.user.name}}</a>
+    <p><a href="/api/users/{{oneReviewDisplay.user.id}}">Go to {{oneReviewDisplay.user.name}}'s profile</p></a>
+    <p><a href="/api/reviews/users/{{oneReviewDisplay.user.id}}">See all reviews by {{oneReviewDisplay.user.name}}</p></a>
     </p>
 </div>

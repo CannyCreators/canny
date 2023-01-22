@@ -1,0 +1,10 @@
+<div class="users-display">
+    {{#each allUsersDisplay as |user|}}
+    <a href="/api/users/{{user.id}}">
+        <div id="userCard">
+            <h1 id="userName">{{user.name}}</h1>
+            <h2 id="userEmail">{{user.email}}</h2>
+        </div>
+    </a>
+    {{/each}}
+</div>

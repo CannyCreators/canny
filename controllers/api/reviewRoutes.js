@@ -3,6 +3,17 @@ const path = require('path');
 const { Reviews, Users, Locations } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//get all reviews
+router.get('/', async (req, res) => {
+    try {
+        const allreviews = await Reviews.findAll()
+
+        res.status(200).json(allreviews)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
+
 //post review
 router.post('/', withAuth, async (req, res) => {
     try {
@@ -46,7 +57,7 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 //get all reviews from one user by user id
 router.get('/users/:users_id', async (req, res) => {
@@ -70,17 +81,25 @@ router.get('/users/:users_id', async (req, res) => {
             res.status(400).json({ message: 'No user found with that name!' })
             return;
         }
+        
         //maping over array of all reviews for user
           const userDisplay = userReveiws.map((reviews) => 
           reviews.get({plain: true})
           );
 
+          //pulling name and id from userDisplay array to pass to handlebar
+          const userName = userDisplay[0].user.name;
+          const userID = userDisplay[0].user.id;
+
           res.render('userReviews', {
-            userDisplay
+            userDisplay, 
+            userName, 
+            userID
           });
         
         // res.status(200).json(userDisplay)
         // console.log(userDisplay)
+        // console.log(userDisplay[0].user.name)
     } catch (err) {
         res.status(500).json(err);
         console.log(err);
@@ -114,14 +133,19 @@ router.get('/locations/:locations_id', async (req, res) => {
           reviews.get({plain: true})
           );
 
+          const locationName = locationDisplay[0].location.location_name;
+          const locationID = locationDisplay[0].location.id;
+
           res.render('locationReviews', {
             locationDisplay, 
+            locationName,
+            locationID,
             users_id: req.session.users_id, 
             logged_in: req.session.logged_in
           });
         
         // res.status(200).json(locationDisplay)
-        // console.log(locationDisplay)
+        console.log(locationDisplay)
     } catch (err) {
         res.status(500).json(err);
         console.log(err);
