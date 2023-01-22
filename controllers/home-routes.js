@@ -3,10 +3,18 @@ const { Locations } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-    const locationsDB = await Locations.findAll()
+    const ipData = await fetch("https://ipwho.is/");
+    const ip = await ipData.json();
+    const userCity = ip.city;
+    const locationsDB = await Locations.findAll({
+        where: {
+            city: userCity
+        }
+    });
     const locations = locationsDB.map((location) => location.get({ plain: true }));
     res.render('homepage', { 
         locations,
+        userCity,
         logged_in: req.session.logged_in
     });
 });
