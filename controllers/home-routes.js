@@ -69,6 +69,10 @@ router.get('/reviewCreate/:id', withAuth, async (req, res) => {
     });
 })
 
+router.get('/api/users/all', async (req, res) => {
+    res.render('userDisplay')
+})
+
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/homepage')

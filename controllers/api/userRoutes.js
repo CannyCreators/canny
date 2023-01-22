@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Users} = require('../../models');
+const path = require('path');
+const { Reviews, Users, Locations } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //sign-up for new users
 router.post('/', async (req, res) => {
@@ -70,4 +72,44 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//get all users
+router.get('/', async (req, res) => {
+  try {
+      const allUsers = await Users.findAll()
+
+      const allUsersDisplay = allUsers.map((user) =>
+      user.get({plain: true})
+      );
+      res.render('userDisplay', {
+        allUsersDisplay
+      })
+      // allUsers.json(allUsers)
+      // console.log(allUsers)
+  } catch (err) {
+      res.status(400).json(err)
+  }
+})
+
+//get one user by id
+router.get('/:id', async (req, res) => {
+  try {
+    const userDB = await Users.findByPk(req.params.id, {
+      incldue: [
+        {
+          model: Reviews
+        }, 
+        // {
+        //   model: Locations
+        // }
+      ]
+    });
+    const oneUser = userDB.get({plain: true});
+
+    res.render('userProfile', {
+      oneUser
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 module.exports = router;

@@ -1,7 +1,10 @@
+<div>
+    <h1>Reviews by {{userName}}</h1>
+</div>
 {{#each userDisplay as |reviews|}}
 <div>
     <p>
-        Location: {{reviews.location.location_name}}
+        Location: <a href="/api/locations/{{reviews.location.id}}">{{reviews.location.location_name}}</a>
         </br>
         Description:
         </br>
@@ -19,3 +22,7 @@
     </div>
 </div>
 {{/each}}
+
+<div>
+    <a href="/api/users/{{userID}}"><h1>Back to {{userName}}'s profile</h1></a>
+</div>
