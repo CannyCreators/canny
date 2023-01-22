@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
     const ipData = await fetch("https://ipwho.is/");
     const ip = await ipData.json();
     const userCity = ip.city;
+    const userIP = ip.ip;
     const locationsDB = await Locations.findAll({
         where: {
             city: userCity
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', { 
         locations,
         userCity,
+        userIP,
         logged_in: req.session.logged_in
     });
 });
