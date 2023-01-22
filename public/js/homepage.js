@@ -1,4 +1,4 @@
-const lookUp = async () => {
+const loadWithIPData = async () => {
     const ipData = await fetch("https://ipwho.is/");
     const ip = await ipData.json();
     
@@ -6,4 +6,4 @@ const lookUp = async () => {
     alert(userIP);
 }
 
-lookUp();
+loadWithIPData();
