@@ -3,7 +3,7 @@ const { Locations } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-    const ipData = await fetch("https://ipwho.is/");
+    const ipData = await fetch(`https://ipwho.is/${req.id}`);
     const ip = await ipData.json();
     const userCity = ip.city;
     const userIP = ip.ip;
