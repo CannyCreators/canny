@@ -23,13 +23,12 @@ const createFormHandler = async (event) => {
 
     const city_search_results = await city_search_data.json();
 
-    console.log(city_search_results);
-
     const matched_city = city_search_results.data.find(city => city.name == entered_city);
+
     if (matched_city) {
         const location_name = document.querySelector('#location-title').value.trim();
         const description = document.querySelector('#location-description').value.trim();
-        const city = city_search_results;
+        const city = matched_city.name;
 
         if (location_name && description) {
             const response = await fetch('/api/locations', {
