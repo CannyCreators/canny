@@ -12,6 +12,7 @@
 
 body {
     background-color: rgb(229, 243, 255);
+    height: auto;
 
   
 }
@@ -75,7 +76,8 @@ body {
 }
 
 #name-search,
-#location-title {
+#location-title,
+#location-city {
     margin-left: 10px;
     width: 75%;
 
