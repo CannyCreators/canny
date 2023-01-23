@@ -20,13 +20,10 @@ router.post('/', withAuth, async (req, res) => {
         const createReview = await Reviews.create({
 
             ...req.body,
-            // locations_id: req.body.locations_id,
             users_id: req.session.users_id
-            // users_id: 1
+
         });
         res.status(200).json(createReview)
-        // const reviewDisplay = createReview.get({ plain: true });
-        // res.render('submitedReview', { reviewDisplay });
         console.log(createReview);
     } catch (err) {
         res.status(400).json(err);
@@ -55,7 +52,6 @@ router.get('/:id', async (req, res) => {
             logged_in: req.session.logged_in
         });
         console.log(oneReviewDisplay)
-        // res.status(200).json(oneReview)
     } catch (err) {
         res.status(500).json(err);
     }
@@ -103,10 +99,6 @@ router.get('/users/:users_id', async (req, res) => {
                 users_id: req.session.users_id, 
                 logged_in: req.session.logged_in
             });
-
-            // res.status(200).json(userDisplay)
-            // console.log(userDisplay)
-            // console.log(userDisplay[0].user.name)
         }
     } catch (err) {
         res.status(500).json(err);
@@ -162,8 +154,6 @@ router.get('/locations/:locations_id', async (req, res) => {
             });
         }
 
-        // res.status(200).json(locationDisplay)
-
         console.log(locationDisplay)
     } catch (err) {
         res.status(500).json(err);
@@ -216,7 +206,6 @@ router.put('/:id', async (req, res) => {
             updateReviewDisplay
         });
         console.log(updateReviewDisplay)
-        // res.status(200).json(oneReview)
     } catch (err) {
         res.status(500).json(err);
     }

@@ -85,8 +85,7 @@ router.get('/', async (req, res) => {
         users_id: req.session.users_id, 
         logged_in: req.session.logged_in
       })
-      // allUsers.json(allUsers)
-      // console.log(allUsers)
+
   } catch (err) {
       res.status(400).json(err)
   }
@@ -100,9 +99,6 @@ router.get('/:id', async (req, res) => {
         {
           model: Reviews
         }, 
-        // {
-        //   model: Locations
-        // }
       ]
     });
     const oneUser = userDB.get({plain: true});
