@@ -2,7 +2,7 @@ const loadLocalResults = async () => {
     const ipData = await fetch(`https://ipwho.is/`);
     const ip = await ipData.json();
     const userCity = ip.city;
-    document.location.replace(`/${userCity}`);
+    document.location.replace(`homepage/${userCity}`);
 }
 
 const urlArray = document.URL.split('/');
