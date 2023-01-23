@@ -54,30 +54,11 @@ router.get('/locationCreate', withAuth, async (req, res) => {
     });
 })
 
-router.get('/locationDisplay', async (req, res) => {
-    res.render('locationDisplay',)
-})
-
-router.get('/api/locations/', async (req, res) => {
-    res.render('locationDisplay')
-})
-
-router.get('/api/reviews/location/:id', async (req, res)=> {
-    res.render('/locationReviews/');
-})
-
 router.get('/reviewCreate/:id', withAuth, async (req, res) => {
     res.render('reviewCreate', {
         logged_in: req.session.logged_in,
     });
 })
-
-// router.get('/api/users/', async (req, res) => {
-//     res.render('userDisplay', {
-//         users_id: req.session.users_id, 
-//         logged_in: req.session.logged_in
-//     })
-// })
 
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {
