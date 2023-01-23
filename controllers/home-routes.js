@@ -72,9 +72,12 @@ router.get('/reviewCreate/:id', withAuth, async (req, res) => {
     });
 })
 
-router.get('/api/users/all', async (req, res) => {
-    res.render('userDisplay')
-})
+// router.get('/api/users/', async (req, res) => {
+//     res.render('userDisplay', {
+//         users_id: req.session.users_id, 
+//         logged_in: req.session.logged_in
+//     })
+// })
 
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {

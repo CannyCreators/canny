@@ -81,7 +81,9 @@ router.get('/', async (req, res) => {
       user.get({plain: true})
       );
       res.render('userDisplay', {
-        allUsersDisplay
+        allUsersDisplay, 
+        users_id: req.session.users_id, 
+        logged_in: req.session.logged_in
       })
       // allUsers.json(allUsers)
       // console.log(allUsers)
@@ -106,7 +108,9 @@ router.get('/:id', async (req, res) => {
     const oneUser = userDB.get({plain: true});
 
     res.render('userProfile', {
-      oneUser
+      oneUser, 
+      users_id: req.session.users_id, 
+      logged_in: req.session.logged_in
     })
   } catch (err) {
     res.status(500).json(err);
