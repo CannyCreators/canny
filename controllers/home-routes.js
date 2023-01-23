@@ -2,11 +2,8 @@ const router = require('express').Router();
 const { Locations } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-    const ipData = await fetch(`https://ipwho.is/`);
-    const ip = await ipData.json();
-    const userCity = ip.city;
-    const userIP = ip.ip;
+router.get('/homepage/:userCity', async (req, res) => {
+    const userCity = req.params.userCity;
     const locationsDB = await Locations.findAll({
         where: {
             city: userCity
@@ -16,10 +13,14 @@ router.get('/', async (req, res) => {
     res.render('homepage', { 
         locations,
         userCity,
-        userIP,
         logged_in: req.session.logged_in
     });
 });
+
+router.get('/', async (req, res) => {
+    const locations = [];
+    res.render('homepage', {locations});
+})
 
 router.get('/locationSearch', async (req, res) => {
     const locationsList = [];
