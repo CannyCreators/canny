@@ -1,21 +1,25 @@
-{{#each userDisplay as |reviews|}}
-<div>
-    <p>
-        Location: {{reviews.location.location_name}}
-        </br>
-        Description:
-        </br>
-        {{reviews.location.description}}
-    </p>
-    <div>
+<section class="section is medium">
+    <h2 class="subtitle">Reviews by {{userName}}</h2>
+
+    {{#each userDisplay as |reviews|}}
+    <div id="reviewCard">
+        <p> Location: <a href="/api/locations/{{reviews.location.id}}">{{reviews.location.location_name}}</a>
+            <br>
+            {{reviews.location.description}}
+        </p>
+        <br>
         <p>
-            Title: {{reviews.title}}
-            </br>
-            Review:
+            Title: <a href="/api/reviews/{{reviews.id}}">{{reviews.title}}</a>
             </br>
             {{reviews.review}}
         </p>
-        <br>
     </div>
-</div>
-{{/each}}
+    <br>
+    {{/each}}
+
+    <div>
+        <a href="/api/users/{{userID}}">
+            <h1>Go to {{userName}}'s profile</h1>
+        </a>
+    </div>
+</section>

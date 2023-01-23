@@ -3,17 +3,7 @@ const path = require('path');
 const { Locations } = require('../../models');
 
 router.get('/', async (req, res) => {
-    const locationsDB = await Locations.findAll({
-        include: [
-            {
-                model: Tags,
-                attributes: [
-                    'id',
-                    'tag_name'
-                ]
-            }
-        ]
-    });
+    const locationsDB = await Locations.findAll()
     const allLocations = locationsDB.get({ plain: true });
     res.render('locationSearch', { allLocations })
 })
@@ -38,3 +28,4 @@ router.post('/', async(req, res) => {
 })
 
 module.exports = router;
+

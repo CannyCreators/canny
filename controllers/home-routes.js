@@ -2,14 +2,25 @@ const router = require('express').Router();
 const { Locations } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-    const locationsDB = await Locations.findAll()
+router.get('/homepage/:userCity', async (req, res) => {
+    const userCity = req.params.userCity;
+    const locationsDB = await Locations.findAll({
+        where: {
+            city: userCity
+        }
+    });
     const locations = locationsDB.map((location) => location.get({ plain: true }));
     res.render('homepage', { 
         locations,
+        userCity,
         logged_in: req.session.logged_in
     });
 });
+
+router.get('/', async (req, res) => {
+    const locations = [];
+    res.render('homepage', {locations});
+})
 
 router.get('/locationSearch', async (req, res) => {
     const locationsList = [];
@@ -26,7 +37,13 @@ router.get('/locationSearch/:city_name', async (req, res) => {
             city: req.params.city_name
         }
     });
-    const locationsList = locationsData.map((location) =>
+
+    console.log(locationsData)
+    if (locationsData.length==0) {
+        res.render('noCity')
+    }
+    else {
+        const locationsList = locationsData.map((location) =>
         location.get({ plain: true })
     );
 
@@ -34,6 +51,7 @@ router.get('/locationSearch/:city_name', async (req, res) => {
         locationsList, 
         users_id: req.session.users_id, 
         logged_in: req.session.logged_in });
+    }
 })
 
 router.get('/locationCreate', withAuth, async (req, res) => {
@@ -41,18 +59,6 @@ router.get('/locationCreate', withAuth, async (req, res) => {
         users_id: req.session.users_id, 
         logged_in: req.session.logged_in
     });
-})
-
-// router.get('/locationDisplay', async (req, res) => {
-//     res.render('locationDisplay',)
-// })
-
-router.get('/api/locations/', async (req, res) => {
-    res.render('locationDisplay')
-})
-
-router.get('/api/reviews/location/:id', async (req, res)=> {
-    res.render('/locationReviews/');
 })
 
 router.get('/reviewCreate/:id', withAuth, async (req, res) => {

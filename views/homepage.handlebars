@@ -1,11 +1,21 @@
-<div class="location-list">
+<div class="hero-body">
+    <p class="subtitle">
+      Showing all locations for {{userCity}}
+    </p>    
+</section>
+
+<section class="location-list">
     {{#each locations as |location|}}
-    <a href="/api/locations/{{location.id}}">
-        <div id="locationCard">
+
+    <div id="locationCard">
+        <a href="/api/locations/{{location.id}}">
             <h1 id="locationName">{{location.location_name}}</h1>
             <h2 id="cityName">{{location.city}}</h2>
             <p id="locationDescription">{{location.description}}</p>
-        </div>
-    </a>
+        </a>
+    </div>
+
     {{/each}}
-</div>
+</section>
+
+<script src='/js/homepage.js'></script>
