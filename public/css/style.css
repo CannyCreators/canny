@@ -73,6 +73,7 @@ body {
 
 .location-list, 
 .user-list {
+    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
 }
