@@ -1,24 +1,25 @@
-<div>
-    <h1>User Reviews for {{locationName}}</h1>
-</div>
+<section class="section is medium">
+    <h2 class="subtitle">User Reviews for {{locationName}}</h2>
 
-{{#each locationDisplay as |review|}}
-<div id ="reviewCard">
-    <p>Title: <a href="/api/reviews/{{review.id}}">{{review.title}}</a>
-    </p>
-    <p>Review:
+    {{#each locationDisplay as |review|}}
+    <div id="reviewCard">
+        <p>Title: <a href="/api/reviews/{{review.id}}">{{review.title}}</a>
+            <br>
+            {{review.review}}
+        </p>
         <br>
-        {{review.review}}
-    </p>
+        <p>Submitted by:
+            <a href="/api/users/{{review.user.id}}">{{review.user.name}}</a>
+        </p>
+        <p><a href="/api/reviews/users/{{review.user.id}}">See all reviews by {{review.user.name}}</a></p>
+        <br>
+    </div>
     <br>
-    <p>Submitted by: 
-        <a href="/api/users/{{review.user.id}}">{{review.user.name}}</a>
-    </p>
-    <p><a href="/api/reviews/users/{{review.user.id}}">See all reviews by {{review.user.name}}</a></p>
-    <br>
-</div>
-{{/each}}
+    {{/each}}
 
-<div>
-    <a href="/api/locations/{{locationID}}"><h1>Back to {{locationName}}</h1></a>
-</div>
+    <div>
+        <a href="/api/locations/{{locationID}}">
+            <h1>Back to {{locationName}}</h1>
+        </a>
+    </div>
+</section>

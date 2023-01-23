@@ -1,9 +1,11 @@
-<div id="locationCard">
-    <h1>Title: {{oneReviewDisplay.title}}</h1>
+<div id="reviewCard">
+    <p><a href="/api/locations/{{oneReviewDisplay.location.id}}">{{oneReviewDisplay.location.location_name}}</a>, {{oneReviewDisplay.location.description}}</p>
+    <br>
     <p>Review: {{oneReviewDisplay.review}}</p>
-    <p>Location: {{oneReviewDisplay.location.location_name}}, {{oneReviewDisplay.location.description}}</p>
+    <br>
     <p>Submitted by: <a href="/api/users/{{oneReviewDisplay.user.id}}">{{oneReviewDisplay.user.name}}</a>
     <p><a href="/api/users/{{oneReviewDisplay.user.id}}">Go to {{oneReviewDisplay.user.name}}'s profile</p></a>
-    <p><a href="/api/reviews/users/{{oneReviewDisplay.user.id}}">See all reviews by {{oneReviewDisplay.user.name}}</p></a>
+    <p><a href="/api/reviews/users/{{oneReviewDisplay.user.id}}">See all reviews by {{oneReviewDisplay.user.name}}</p>
+    </a>
     </p>
 </div>

@@ -37,7 +37,13 @@ router.get('/locationSearch/:city_name', async (req, res) => {
             city: req.params.city_name
         }
     });
-    const locationsList = locationsData.map((location) =>
+
+    console.log(locationsData)
+    if (locationsData.length==0) {
+        res.render('noCity')
+    }
+    else {
+        const locationsList = locationsData.map((location) =>
         location.get({ plain: true })
     );
 
@@ -45,6 +51,7 @@ router.get('/locationSearch/:city_name', async (req, res) => {
         locationsList, 
         users_id: req.session.users_id, 
         logged_in: req.session.logged_in });
+    }
 })
 
 router.get('/locationCreate', withAuth, async (req, res) => {

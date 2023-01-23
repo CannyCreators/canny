@@ -1,7 +1,10 @@
-<div>
-    <h1>Showing all locations for {{userCity}}</h1>
-</div>
-<div class="location-list">
+<div class="hero-body">
+    <p class="subtitle">
+      Showing all locations for {{userCity}}
+    </p>    
+</section>
+
+<section class="location-list">
     {{#each locations as |location|}}
 
     <div id="locationCard">
@@ -13,6 +16,6 @@
     </div>
 
     {{/each}}
-</div>
+</section>
 
 <script src='/js/homepage.js'></script>
