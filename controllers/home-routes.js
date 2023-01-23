@@ -54,9 +54,9 @@ router.get('/locationCreate', withAuth, async (req, res) => {
     });
 })
 
-// router.get('/locationDisplay', async (req, res) => {
-//     res.render('locationDisplay',)
-// })
+router.get('/locationDisplay', async (req, res) => {
+    res.render('locationDisplay',)
+})
 
 router.get('/api/locations/', async (req, res) => {
     res.render('locationDisplay')
