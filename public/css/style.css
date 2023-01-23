@@ -12,7 +12,7 @@
 
 body {
     background-color: rgb(229, 243, 255);
-    height: auto;
+    min-height: 100vh;
   
 }
 
