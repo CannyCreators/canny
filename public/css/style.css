@@ -61,8 +61,8 @@ body {
     box-shadow: 3px 3px var(--shadow);
     margin: 3px;
     width: 60%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 15px;
+
     cursor: pointer;
 }
 
@@ -74,8 +74,7 @@ body {
     box-shadow: 3px 3px var(--shadow);
     margin: 3px;
     width: 60%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 15px;
 }
 
 #locationCard:hover, 
