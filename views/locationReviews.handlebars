@@ -3,15 +3,14 @@
 </div>
 
 {{#each locationDisplay as |review|}}
-<div>
+<div id ="reviewCard">
     <p>Title: <a href="/api/reviews/{{review.id}}">{{review.title}}</a>
     </p>
     <p>Review:
         <br>
         {{review.review}}
     </p>
-</div>
-<div>
+    <br>
     <p>Submitted by: 
         <a href="/api/users/{{review.user.id}}">{{review.user.name}}</a>
     </p>

@@ -12,7 +12,7 @@
 
 body {
     background-color: rgb(229, 243, 255);
-
+    
     min-height: 100vh;
   
 }
@@ -60,7 +60,20 @@ body {
     border-radius: 25px;
     box-shadow: 3px 3px var(--shadow);
     margin: 3px;
-    max-width: 200px;
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+#reviewCard {
+    background-color: ivory;
+    border: solid;
+    border-width: 2px;
+    border-radius: 25px;
+    box-shadow: 3px 3px var(--shadow);
+    margin: 3px;
+    width: 60%;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -75,18 +88,21 @@ body {
 .location-list, 
 .user-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #name-search,
-#location-title {
+#location-title,
+#location-city {
     margin-left: 10px;
     width: 75%;
 
 }
 
 #searchBtn,
-#image-upload, 
+#image-upload,
+#reviewBtn, 
 #signupBtn,
 #create,
 #loginBtn {

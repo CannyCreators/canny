@@ -1,21 +1,17 @@
 <div>
-    <div class="location-header">
-        <h1>{{locationDisplay.location_name}}</h1>
-    </div>
-    <div class="location-description">
-        <p>{{locationDisplay.description}}</p>
-    </div>
-    <div class="location-image">
-        <img></img>
-    </div>
-    <div class="location-tags">
-    </div>
+    <div id="locationCard">
+            <h1 id="locationName">{{locationDisplay.location_name}}</h1>
+            <h2 id="cityName">{{locationDisplay.city}}</h2>
+            <p id="locationDescription">{{locationDisplay.description}}</p>
+        </div>
     <div class="location-reviews">
         <div class="field">
-            <button onclick="location.href = '/reviewCreate/{{locationDisplay.id}}'" class="button">Create new review</button>
+            <button onclick="location.href = '/reviewCreate/{{locationDisplay.id}}'" class="button" id ="reviewBtn">Create new
+                review</button>
         </div>
         <div class="field">
-            <button onclick="location.href = '/api/reviews/locations/{{locationDisplay.id}}'" class="button">View All Reviews</button>
+            <button onclick="location.href = '/api/reviews/locations/{{locationDisplay.id}}'" class="button" id ="reviewBtn">View All
+                Reviews</button>
         </div>
     </div>
 </div>
